@@ -85,8 +85,15 @@ public class Main {
 //                .orElse(null);
 //        System.out.println("First non-repeating character in '" + str2 + "': " + charCount);
 
-        // Find first non-repeating integer in intList
+        // Find unique number in intList
         List<Integer> intList = Arrays.asList(1, 1, 2, 3, 2, 4, 5, 5);
+        List<Integer> uniquenumber = intList.stream()
+                .distinct()
+                .collect(Collectors.toList());
+
+        uniquenumber.forEach(System.out::println); // Print each unique element
+        System.out.println("Unique elements list: " + uniquenumber);
+
         Map<Integer, Long> intCount = intList.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
@@ -105,6 +112,27 @@ public class Main {
                 .map(Map.Entry::getKey)
                 .collect(Collectors.toList());
 
-        System.out.println("Duplicate Integer: " +duplicates); // Output: [2, 5]
+        System.out.println("Duplicate Integer: " +duplicates); // Output: [1, 2, 5]
+
+
+        //Given a sorted integer array nums, return an array of the squares of each number, also sorted in non-decreasing order.
+        //Example:
+        // Input: [-4, -1, 0, 3, 10]
+        // Output: [0, 1, 9, 16, 100]
+
+        int[] sortArray={-4, -1, 0, 3, 10};
+        int[] arraySorted = Arrays.stream(sortArray)
+                .map(n -> n*n)
+                        .sorted()
+                                .toArray();
+        System.out.println("Sorted array: " + Arrays.toString(arraySorted));
+
+        List<Integer> arrSort = Arrays.stream(sortArray)      // Creates an IntStream from the int[]
+                .map(n -> n*n)                            // Squares each number (still an IntStream)
+                .sorted()                                    // Sorts the squared numbers (still an IntStream)
+                .boxed()                                     // Converts each int to an Integer (creates a Stream<Integer>)
+                .collect(Collectors.toList());               // Collects the elements into a List<Integer>
+        System.out.println("Sorted array: " + arrSort);
+
     }
 }

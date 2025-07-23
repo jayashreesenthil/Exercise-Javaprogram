@@ -58,5 +58,14 @@ public class SwapInt {
         map.entrySet().stream()
                 .filter(entry -> entry.getValue() > 1)
                 .forEach(entry -> System.out.println("Duplicates: " + entry.getKey() + " : " + entry.getValue()));
+
+
+//        List<Integer> duplicates = intArray.stream()
+//                //.boxed()
+//                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+//                .entrySet().stream()
+//                .filter(entry -> entry.getValue() > 1)
+//                .map(Map.Entry::getKey)
+//                .collect(Collectors.toList());
     }
 }

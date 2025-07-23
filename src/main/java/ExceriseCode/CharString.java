@@ -19,5 +19,6 @@ public class CharString {
         for (char c : charArray) {
             System.out.print(c + " ");
         }
+        
     }
 }

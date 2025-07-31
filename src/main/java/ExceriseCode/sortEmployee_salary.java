@@ -12,10 +12,11 @@ public class sortEmployee_salary {
         static class Employee {
             private String name;
             private int rating;
-
-            public Employee(String name, int rating) {
+            private int salary;
+            public Employee(String name, int rating, int salary) {
                 this.name = name;
                 this.rating = rating;
+                this.salary = salary;
             }
 
             public String getName() {
@@ -25,21 +26,24 @@ public class sortEmployee_salary {
             public int getRating() {
                 return rating;
             }
+            public int getSalary() {
+                return salary;
+            }
 
             @Override
             public String toString() {
-                return "Employee{name='" + name + "', rating=" + rating + '}';
+                return "Employee{name='" + name + "', rating=" + rating + " ', salary=" + salary + "'}";
             }
         }
 
         public static void main(String[] args) {
             // 1. Create a list of employees
             List<Employee> employees = new ArrayList<>();
-            employees.add(new Employee("Alice", 4));
-            employees.add(new Employee("Bob", 2));
-            employees.add(new Employee("Charlie", 5));
-            employees.add(new Employee("David", 3));
-            employees.add(new Employee("Eve", 1));
+            employees.add(new Employee("Alice", 4, 100000));
+            employees.add(new Employee("Bob", 2, 8000));
+            employees.add(new Employee("Charlie", 5, 20000));
+            employees.add(new Employee("David", 3,25000));
+            employees.add(new Employee("Eve", 1, 3000));
 
             System.out.println("Original Employee List:");
             employees.forEach(System.out::println);
@@ -94,7 +98,24 @@ public class sortEmployee_salary {
             minRatingValue.ifPresent(rating -> System.out.println("Min Rating Value: " + rating));
             System.out.println("------------------------------------");
 
+            List<Employee> salaryList = employees.stream()
+                    .sorted(Comparator.comparingInt(Employee::getSalary))
+                    .collect(Collectors.toList());
+            System.out.println("Sorted by Salary:");
+            salaryList.forEach(System.out::println);
+
+            System.out.println("------------------------------------");
+
+            // Filter employees with salary greater than 20000
+            List<String> highSalaryEmployees = employees.stream()
+                    .filter(emp -> emp.getSalary() > 20000)
+                    .map(Employee::getName)
+                    .collect(Collectors.toList());
+            System.out.println("Employees with Salary > 20000:");
+            highSalaryEmployees.forEach(System.out::println);
+
+            // Or to print as a single list:
+             System.out.println(highSalaryEmployees);
+
         }
-
-
 }

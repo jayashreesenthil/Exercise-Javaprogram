@@ -113,6 +113,12 @@ public class Main {
                 .collect(Collectors.toList());
 
         System.out.println("Duplicate Integer: " +duplicates); // Output: [1, 2, 5]
+    Map<Integer, Long> intMap = intArray.stream()
+            .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+            intMap.entrySet().stream()
+                .filter(entry -> entry.getValue() > 1)
+                .collect(Collectors.toList())
+                    .forEach(entry -> System.out.println(entry.getKey() + " : " + entry.getValue()));
 
 
         //Given a sorted integer array nums, return an array of the squares of each number, also sorted in non-decreasing order.
@@ -123,8 +129,10 @@ public class Main {
         int[] sortArray={-4, -1, 0, 3, 10};
         int[] arraySorted = Arrays.stream(sortArray)
                 .map(n -> n*n)
-                        .sorted()
-                                .toArray();
+                .sorted()
+                .boxed()
+                .mapToInt(Integer::intValue)
+                .toArray();
         System.out.println("Sorted array: " + Arrays.toString(arraySorted));
 
         List<Integer> arrSort = Arrays.stream(sortArray)      // Creates an IntStream from the int[]

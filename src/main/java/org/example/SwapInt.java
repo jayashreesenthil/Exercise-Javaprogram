@@ -19,9 +19,9 @@ public class SwapInt {
         System.out.println("Before swap: n1 = " +num1+ " n2 = " +num2);
         //System.out.println("Before swap: num1 = " + num1 + " num2 = " + num2);
        // with temporary variable
-        int temp = num1;
-        num1 = num2;
-        num2 = temp;
+//        int temp = num1;
+//        num1 = num2;
+//        num2 = temp;
 
         //without temporary variable
 //        num1 = num1 + num2; // num1 now becomes 15
@@ -34,7 +34,7 @@ public class SwapInt {
 //        num1 = num1 ^ num2;
 
         // or using Java 8's method reference
-//        num1 = (num1 + num2) - (num2 = num1);
+num1 = (num1 + num2) - (num2 = num1);
        System.out.println("After swap: n1 = " + num1 + " n2 = " + num2);
 
 

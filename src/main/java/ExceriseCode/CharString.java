@@ -1,13 +1,9 @@
 package ExceriseCode;
 
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-import java.security.spec.RSAOtherPrimeInfo;
-import java.util.Arrays;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
-import java.util.function.Function;
 import java.util.stream.Collectors;
+
 
 public class CharString {
     public static void main(String[] args) {
@@ -26,6 +22,19 @@ public class CharString {
         for (char c : charArray) {
             System.out.println(c + " ");
         }
+
+        String s="Hello World";
+        String uniqueChars = s.chars()
+                .distinct()
+                .mapToObj(c -> String.valueOf((char) c))
+                .collect(Collectors.joining());
+
+//        List<String> uniqueCharsList = s.chars()
+//                .distinct()
+//                .mapToObj(c -> String.valueOf((char) c))
+//                .collect(Collectors.toList());
+//        System.out.println(uniqueCharsList);
+        System.out.println("Unique characters: " + uniqueChars);
 
     }
 }

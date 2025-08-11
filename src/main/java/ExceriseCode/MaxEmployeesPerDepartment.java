@@ -1,9 +1,6 @@
 package ExceriseCode;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 // Represents a Department
@@ -127,6 +124,7 @@ public class MaxEmployeesPerDepartment {
         maxEntryOptional.ifPresent(entry -> {
             System.out.println("Department with Max Employees: " + entry.getKey().getName());
             System.out.println("Maximum Employee Count: " + entry.getValue());
+
         });
 
         // If you want to get only the maximum count value
@@ -137,5 +135,25 @@ public class MaxEmployeesPerDepartment {
         maxCountValue.ifPresent(count ->
                 System.out.println("The maximum number of employees in any department is: " + count)
         );
+
+        //Find the entry (Department and its count) with the maximum count
+        Optional<Map.Entry<Department, Long>> maxEntryOptionals = employeeCountByDepartment.entrySet().stream()
+                .max(Map.Entry.comparingByValue()); // Compare map entries by their value (the count)
+
+        System.out.println("\n--- Department with Maximum Employees and their Names ---");
+        maxEntryOptionals.ifPresent(entry -> {
+            Department maxDept = entry.getKey();
+            Long maxCount = entry.getValue();
+
+            //Get the list of employee names for the max count department
+            List<String> employeeNamesInMaxDept = employees.stream()
+                    .filter(emp -> emp.getDepartment().equals(maxDept)) // Filter employees belonging to the max department
+                    .map(Employee::getName)                             // Map to their names
+                    .collect(Collectors.toList());                      // Collect names into a list
+
+            System.out.println("Department with Max Employees: " + maxDept.getName());
+            System.out.println("Maximum Employee Count: " + maxCount);
+            System.out.println("Employees in this department: " + employeeNamesInMaxDept);
+        });
     }
 }

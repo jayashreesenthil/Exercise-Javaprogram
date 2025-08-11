@@ -27,6 +27,9 @@ public class SecondHighestSalary {
                     .findFirst().get(); // Get the second highest
         System.out.println("Second Highest Salary:" +secondSalary);
 
+        int secondIndex = number.stream().skip(1).findFirst().get();
+        System.out.println("Second Index:" +secondIndex);
+
         // Find the smallest element
         Optional<Integer> min = number.stream()
                 .min(Integer::compareTo); // Or Comparator.naturalOrder()
@@ -50,14 +53,29 @@ public class SecondHighestSalary {
             System.out.println("The list is empty.");
         }
 
-        // Find the even numbers and calculate the sum of all even elements
-        int sumOfEvenNumbersAlt = number.stream()
-                .filter(n -> n % 2 == 0)
-                .mapToInt(Integer::intValue) // Convert Stream<Integer> back to IntStream for sum()
-                .sum();
+        // other way - Find the minimum & maximum number
+        Optional<Integer> miniNum = number.stream().min(Comparator.naturalOrder());
+        System.out.println("Minimum number: " + miniNum.get());
 
-        System.out.println("Sum of Even Numbers: " + sumOfEvenNumbersAlt);
+        Optional<Integer> maxNum = number.stream().max(Comparator.naturalOrder());
+        System.out.println("Maximum Number: " + maxNum.get());
 
+
+
+//        List<Integer> employeeSalary = Arrays.asList(1000,2000,300,5000,5000,50000);
+//            Optional<Integer> secondSalary = employeeSalary.stream()
+//                    .distinct() // Remove duplicates
+//                    .sorted(Comparator.reverseOrder()) // Sort in descending order
+//                    .skip(1) // Skip the highest salary
+//                    .findFirst(); // Get the second highest
+//        System.out.println("Second Highest Salary:" +secondSalary);
+
+//        List<Integer> number = Arrays.asList(1,0,5,10000,25,60,50,1000,2000,300,5000,5000,50000);
+//        List<Integer> natureOrder = number.stream()
+//              //  .sorted(Comparator.naturalOrder())
+//                .sorted(Comparator.reverseOrder())
+//                .collect(Collectors.toList());
+//        System.out.println(natureOrder);
 
     }
 

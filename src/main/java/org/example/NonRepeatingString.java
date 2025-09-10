@@ -13,7 +13,7 @@ public class NonRepeatingString {
         System.out.println("Enter the string: ");
 
         String s = str.nextLine();
-        System.out.println("Entered string is: "+s);
+        System.out.println("Entered string is : "+s);
         Map<Character, Long> charCount = s.chars()
                 .mapToObj(c -> (char) c)
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));

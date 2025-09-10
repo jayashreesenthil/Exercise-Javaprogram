@@ -59,6 +59,11 @@ public class Main {
         uniquenumber.forEach(System.out::println); // Print each unique element
         System.out.println("Unique elements list: " + uniquenumber);
 
+        Set<Integer> uniqueSet = intList.stream().collect(Collectors.toSet());
+
+        System.out.println("Unique elements set: " + uniqueSet);
+
+
         Map<Integer, Long> intCount = intList.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 
@@ -78,12 +83,13 @@ public class Main {
                 .collect(Collectors.toList());
 
         System.out.println("Duplicate Integer: " +duplicates); // Output: [1, 2, 5]
+
     Map<Integer, Long> intMap = intArray.stream()
             .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
             intMap.entrySet().stream()
                 .filter(entry -> entry.getValue() > 1)
                 .collect(Collectors.toList())
-                    .forEach(entry -> System.out.println(entry.getKey() + " : " + entry.getValue()));
+                    .forEach(entry -> System.out.println("Occurence : " + entry.getKey() + " : " + entry.getValue()));
 
     }
 }

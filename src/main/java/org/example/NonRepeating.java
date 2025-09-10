@@ -37,6 +37,22 @@ public class NonRepeating {
                 .filter(entry -> entry.getValue() == 1)
                 .findFirst()
                 .ifPresent(entry -> System.out.println("First non-repeating integer in list: " + entry.getKey()));
+
+
+        Map<Integer, Long> counts = intList.stream()
+                .collect(Collectors.groupingBy(
+                        num -> num,        // Group by the number itself
+                        Collectors.counting() // Count occurrences of each number
+                ));
+
+        // Step 2: Filter the map entries to find numbers with a count of 1
+        // Then, extract these numbers and print them
+        System.out.println("Numbers that appear exactly once:");
+        counts.entrySet().stream()
+                .filter(entry -> entry.getValue() == 1) // Filter for entries where count is 1
+                .map(Map.Entry::getKey)                 // Get the number (key) from the filtered entry
+                .forEach(System.out::println);
+
     }
 
 }

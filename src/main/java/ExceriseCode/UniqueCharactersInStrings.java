@@ -27,7 +27,6 @@ public class UniqueCharactersInStrings {
         String[] words = {"hello", "world", "programming", "java", "unique"};
         findUniqueCharacters(words);
 
-
         //Java 8
         String input = "programming";
         String unique = input.chars()
@@ -62,4 +61,5 @@ public class UniqueCharactersInStrings {
 //        String unique = findUniqueCharacters(input);
 //        System.out.println("Unique characters in \"" + input + "\": " + unique); // Output: Unique characters in "programming": progamni
 //    }
+
 }

@@ -20,8 +20,9 @@ public class SecondHighestSalary {
     public static void main(String[] args) {
 
         List<Integer> number = Arrays.asList(1,0,5,10000,25,60,50,1000,2000,300,5000,5000,50000);
+      //  int n =3;
         int secondSalary = number.stream()
-                .distinct()
+                    .distinct()
                     .sorted(Comparator.reverseOrder()) // Sort in descending order
                     .skip(1) // Skip the highest salary
                     .findFirst().get(); // Get the second highest

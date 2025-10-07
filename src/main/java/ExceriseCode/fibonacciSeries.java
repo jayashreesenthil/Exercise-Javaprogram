@@ -16,10 +16,10 @@ public class fibonacciSeries {
 
             // Generate and print the remaining terms
             for (int i = 2; i < count; i++) {
-                //int nextTerm = a + b;
                 System.out.print(b + " ");
+                int nextTerm = b + a;
                 a = b;
-                b = a + b;
+                b = nextTerm;
             }
         }
 

@@ -53,6 +53,23 @@ public class NonRepeating {
                 .map(Map.Entry::getKey)                 // Get the number (key) from the filtered entry
                 .forEach(System.out::println);
 
+
+        int[] input = {2, 3, 1, 0, 4};
+
+        // Use a single stream to partition numbers into even and odd lists.
+        // The key of the map will be a boolean: true for even, false for odd.
+        Map<Boolean, List<Integer>> oddEvenPartition = Arrays.stream(input)
+                .boxed() // Convert from IntStream to Stream<Integer>
+                .collect(Collectors.partitioningBy(num -> num % 2 == 0));
+
+        // Retrieve the lists from the map.
+        List<Integer> evenNumbers = oddEvenPartition.get(true);
+        List<Integer> oddNumbers = oddEvenPartition.get(false);
+
+        System.out.println("Even Numbers: " + evenNumbers);
+        int l= evenNumbers.stream().mapToInt(Integer::intValue).sum();
+        System.out.println("Sum of Even Numbers: " + l);
+        System.out.println("Odd Numbers: " + oddNumbers);
     }
 
 }

@@ -16,6 +16,12 @@ public class Main {
                 .filter(entry -> entry.getValue() > 1)
                 .forEach(entry -> System.out.println(entry.getKey() + " : " + entry.getValue()));
 
+        String[] s = {"a", "b", "c", "c", "a", "a", "e"};
+        Map<String, Long> occurrences = Arrays.stream(s)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+
+        occurrences.forEach((key, value) -> System.out.println(key + " : " + value));
+
         //charOccurrence.forEach((character, count) -> System.out.println(character + ": " + count));
         String str1="Java is very fun and Java is more interesting";
         Map<String,Long> wordCounts=Arrays.stream(str1.split(" "))

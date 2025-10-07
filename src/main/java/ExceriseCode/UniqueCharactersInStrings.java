@@ -1,9 +1,6 @@
 package ExceriseCode;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class UniqueCharactersInStrings {
@@ -42,6 +39,9 @@ public class UniqueCharactersInStrings {
             uniqueChars.add(ch); // HashSet automatically handles uniqueness
         }
         System.out.println("Unique characters in \"" + input + "\": " + uniqueChars);
+        List<Character> reversedList = new ArrayList<>(uniqueChars);
+        Collections.reverse(reversedList);
+        System.out.println("Reversed unique characters: " + reversedList);
     }
 
 //    public static String findUniqueCharacters(String str) {
@@ -61,5 +61,7 @@ public class UniqueCharactersInStrings {
 //        String unique = findUniqueCharacters(input);
 //        System.out.println("Unique characters in \"" + input + "\": " + unique); // Output: Unique characters in "programming": progamni
 //    }
+
+
 
 }

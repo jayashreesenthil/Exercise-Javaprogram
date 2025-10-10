@@ -37,7 +37,7 @@ public class InterviewQues {
         int[] result = solution.twoSum(nums, target);
         System.out.println(Arrays.toString(result)); // Output: [0, 3]
 
-        System.out.println(result); // Output: [I@15db9742 - Without Arrays.toString, printing the array directly would display its memory address, not its contents.
+        // System.out.println(result); // Output: [I@15db9742 - Without Arrays.toString, printing the array directly would display its memory address, not its contents.
 
 
     }

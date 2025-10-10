@@ -12,18 +12,13 @@ public class Practice {
         map.put("ghi", 3);
         map.put("abc", 4);
         map.put("mno", null);
+        map.put(null, null);
+        //map.put(null, 5);
 
         // Print out the key-value pairs in the HashMap
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
             System.out.println(entry.getKey() + " : " + entry.getValue());
         }
 
-        // Create a List of Integers
-        List<Integer> intArray = Arrays.asList(1, 1, 2, 3, 2, 4, 5, 5);
-
-        // Use a stream to filter out the odd numbers and print them to the console
-        intArray.stream()
-                .filter(x -> x % 2 != 0)
-                .forEach(System.out::println);
     }
 }

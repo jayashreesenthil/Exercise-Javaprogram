@@ -53,6 +53,7 @@ num1 = (num1 + num2) - (num2 = num1);
 
         List<Integer> intList = Arrays.stream(intArray).boxed().collect(Collectors.toList());
         System.out.println(intList);
+
         Map<Integer,Long> map = intList.stream()
                 .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
         map.entrySet().stream()
@@ -67,5 +68,10 @@ num1 = (num1 + num2) - (num2 = num1);
 //                .filter(entry -> entry.getValue() > 1)
 //                .map(Map.Entry::getKey)
 //                .collect(Collectors.toList());
+
+        //print 1 to 100 without number
+        for(int i='A'-'@'; i<'e'; i++){
+            System.out.print(i);
+        }
     }
 }

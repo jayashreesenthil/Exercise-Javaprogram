@@ -2,6 +2,7 @@ package ExceriseCode;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 
@@ -14,16 +15,16 @@ public class CharString {
         String str = String.valueOf(charArrays);
         System.out.println(string);
         //String to Character Array
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a string: ");
-        String input = scanner.next();
-        char[] charArray = input.toCharArray();
-        System.out.println("Character array: ");
-        for (char c : charArray) {
-            System.out.println(c + " ");
-        }
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.print("Enter a string: ");
+//        String input = scanner.next();
+//        char[] charArray = input.toCharArray();
+//        System.out.println("Character array: ");
+//        for (char c : charArray) {
+//            System.out.println(c + " ");
+//        }
 
-        String s="Hello World";
+        String s="HelloWorld";
         String uniqueChars = s.chars()
                 .distinct()
                 .mapToObj(c -> String.valueOf((char) c))
@@ -35,6 +36,10 @@ public class CharString {
 //                .collect(Collectors.toList());
 //        System.out.println(uniqueCharsList);
         System.out.println("Unique characters: " + uniqueChars);
+        Set<Character> charUnique = s.chars()
+                .mapToObj(c -> (char) c)
+                .collect(Collectors.toSet());
+        System.out.println("Unique characters in Set: " +charUnique);
 
     }
 }

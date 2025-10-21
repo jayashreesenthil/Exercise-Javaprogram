@@ -18,7 +18,7 @@ public class SecondNonRepeatingChar {
                 ))
                 .entrySet().stream()
                 // Filter: Keep only entries where the count is 1 (non-repeated)
-                .filter(entry -> entry.getValue() == 1L)
+                .filter(entry -> entry.getValue() == 1)
                 // Skip: Skip the first non-repeated character
                 .skip(1)
                 // Find: Get the next character (which is the second non-repeated one)

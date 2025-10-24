@@ -19,8 +19,7 @@ public class GroupStringsByLength {
         Map<Integer, List<String>> groupedMap = words.stream()
                 .collect(Collectors.groupingBy(
                         // The classifier function: uses String::length to determine the map key
-                        String::length
-                ));
+                        String::length));
 
         // 3. Print the resulting map
         groupedMap.forEach((length, stringList) ->

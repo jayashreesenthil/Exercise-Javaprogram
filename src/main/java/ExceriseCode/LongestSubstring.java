@@ -10,6 +10,8 @@ public class LongestSubstring {
         String s="abcabcbb";
         int maxLen = 0;
         int left = 0;
+        //int start = 0; // New variable to store the starting index of the longest substring
+
         //Sliding Window using Set
         Set<Character> set = new HashSet<>();
         for (int right = 0; right < s.length(); right++) {
@@ -19,8 +21,17 @@ public class LongestSubstring {
             }
             set.add(s.charAt(right));
             maxLen = Math.max(maxLen, right - left + 1);
+
+            // Check if the current window is the new maximum length
+//            if (right - left + 1 > maxLen) {
+//                maxLen = right - left + 1;
+//                start = left; // Update the start index to the current window's start
+//            }
         }
-        System.out.println(maxLen);;
+        // Extract the longest substring using the stored 'start' index and 'maxLen'
+        //String longestSubstring = s.substring(start, start + maxLen);
+        System.out.println(maxLen);
+        //System.out.println("Longest Substring: " + longestSubstring);
     }
         //"abcabcbb" // Output: 3
         //"bbbb" // Output: 1

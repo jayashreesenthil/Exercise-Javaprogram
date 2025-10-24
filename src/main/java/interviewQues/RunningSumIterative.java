@@ -9,6 +9,12 @@ public class RunningSumIterative {
         int[] nums = {1, 2, 3, 4, 5};
         System.out.println("Original Array: " + Arrays.toString(nums));
 
+        //int[] nums = null;
+        if (nums == null || nums.length == 0) {
+            System.out.println("Cannot calculate running sum: Array is null or empty.");
+            return; // Exit the main method or use a safer default
+        }
+
         // Start from the second element (index 1)
         for (int i = 1; i < nums.length; i++) {
             // Update the current element to be the sum of itself and the previous running sum

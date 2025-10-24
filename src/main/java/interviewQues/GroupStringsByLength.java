@@ -20,7 +20,7 @@ public class GroupStringsByLength {
                 .collect(Collectors.groupingBy(
                         // The classifier function: uses String::length to determine the map key
                         String::length));
-
+        System.out.println(groupedMap);
         // 3. Print the resulting map
         groupedMap.forEach((length, stringList) ->
                 System.out.println("Length " + length + ": " + stringList)

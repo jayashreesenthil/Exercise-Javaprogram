@@ -38,6 +38,7 @@ public class WordsWithMaxNoOfVowels {
                 .max()
                 .orElse(0L);
 
+
         // 3. Retrieve the list of words corresponding to the maximum count
         List<String> wordsWithMaxVowels = groupedByVowelCount.getOrDefault(maxVowelCount, List.of());
 

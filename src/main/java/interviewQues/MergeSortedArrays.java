@@ -1,5 +1,7 @@
 package interviewQues;
 
+import java.util.Arrays;
+
 public class MergeSortedArrays {
 
     public static int[] mergeSortedArrays(int[] arr1, int[] arr2) {
@@ -51,20 +53,6 @@ public class MergeSortedArrays {
         return mergedArray;
     }
 
-    /**
-     * Helper function to print an array.
-     */
-    private static void printArray(String label, int[] arr) {
-        System.out.print(label + ": [");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i]);
-            if (i < arr.length - 1) {
-                System.out.print(", ");
-            }
-        }
-        System.out.println("]");
-    }
-
     public static void main(String[] args) {
         // Test Case 1: Standard merge
         int[] arrayA = {1, 3, 5, 7};
@@ -72,9 +60,10 @@ public class MergeSortedArrays {
         int[] result1 = mergeSortedArrays(arrayA, arrayB);
 
         System.out.println("--- Test Case 1 ---");
-        printArray("Array A", arrayA);
-        printArray("Array B", arrayB);
-        printArray("Merged Result", result1);
+
+        System.out.println("Array A: " + Arrays.toString(arrayA));
+        System.out.println("Array B: " + Arrays.toString(arrayB));
+        System.out.println("Merged Result: " + Arrays.toString(result1));
         // Expected Output: [1, 2, 3, 4, 5, 6, 7, 8]
 
         System.out.println("\n-------------------\n");
@@ -85,9 +74,9 @@ public class MergeSortedArrays {
         int[] result2 = mergeSortedArrays(arrayC, arrayD);
 
         System.out.println("--- Test Case 2 ---");
-        printArray("Array C", arrayC);
-        printArray("Array D", arrayD);
-        printArray("Merged Result", result2);
+        System.out.println("Array C: " + Arrays.toString(arrayC));
+        System.out.println("Array D: " + Arrays.toString(arrayD));
+        System.out.println("Merged Result: " + Arrays.toString(result2));
         // Expected Output: [5, 10, 15, 20, 25, 30, 35, 45]
 
         System.out.println("\n-------------------\n");
@@ -98,9 +87,9 @@ public class MergeSortedArrays {
         int[] result3 = mergeSortedArrays(arrayE, arrayF);
 
         System.out.println("--- Test Case 3 (One Empty Array) ---");
-        printArray("Array E", arrayE);
-        printArray("Array F", arrayF);
-        printArray("Merged Result", result3);
+        System.out.println("Array E: " + Arrays.toString(arrayE));
+        System.out.println("Array F: " + Arrays.toString(arrayF));
+        System.out.println("Merged Result: " + Arrays.toString(result3));
         // Expected Output: [100, 200]
     }
 }

@@ -13,11 +13,13 @@ public class StringReverse {
 //        String s= name.substring(1);
 //        String ss= name.substring(0, 1);
 //        System.out.println("String: "+s  +ss);
-        String capitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
-        System.out.println(capitalized);
+//        String capitalized = name.substring(0, 1).toUpperCase() + name.substring(1);
+//        System.out.println(capitalized);
         for (int i = name.length() - 1; i >= 0; --i) {
             System.out.print(name.charAt(i));
         }
+
+        System.out.println();
 
         // Remove duplicates and reverse the list of Strings
         List<String> list1 = Arrays.asList("a", "b", "c", "a", "e", "b", "d");

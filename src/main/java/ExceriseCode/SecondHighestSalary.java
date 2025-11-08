@@ -71,12 +71,6 @@ public class SecondHighestSalary {
 //                    .findFirst(); // Get the second highest
 //        System.out.println("Second Highest Salary:" +secondSalary);
 
-//        List<Integer> number = Arrays.asList(1,0,5,10000,25,60,50,1000,2000,300,5000,5000,50000);
-//        List<Integer> natureOrder = number.stream()
-//              //  .sorted(Comparator.naturalOrder())
-//                .sorted(Comparator.reverseOrder())
-//                .collect(Collectors.toList());
-//        System.out.println(natureOrder);
 
     }
 

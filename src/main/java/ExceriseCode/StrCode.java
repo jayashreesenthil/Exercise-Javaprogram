@@ -1,9 +1,6 @@
 package ExceriseCode;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -16,14 +13,6 @@ public class StrCode {
        System.out.println(str2.compareTo(str3));
        System.out.println(str3.compareTo(str1));
 
-      // input s= "jjava" - ouput - find the occurence of each character
-        String s="jjava";
-        Map<Character, Long> map = s.chars()
-                .mapToObj(c -> (char) c)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
-
-        map.entrySet()
-                .forEach((entry) -> System.out.println(entry.getKey() + " " + entry.getValue()));
 
         //Remove consecutive duplicate characters from a string
         //input: "ABBCCCD" - output: "ACD"
@@ -58,21 +47,6 @@ public class StrCode {
 //        System.out.println(result); // Output: ACD
 
 
-        //Count the characters in a string and display the count next to each character
-
-        String input = "ABBCCCD";
-        StringBuilder result = new StringBuilder();
-        int count = 1;
-        for (int i = 1; i < input.length(); i++) {
-            if (input.charAt(i) == input.charAt(i - 1)) {
-                count++;
-            } else {
-                result.append(count).append(input.charAt(i - 1));
-                count = 1;
-            }
-        }
-        result.append(count).append(input.charAt(input.length() - 1));
-        System.out.println(result);
 
         //Extract only the letters from a given alphanumeric string
         String sr = "1A2B3C1D";
@@ -114,6 +88,16 @@ public class StrCode {
                 .collect(Collectors.groupingBy(ca -> ca, Collectors.counting()));
 
         System.out.println("Non-vowel counts in \"" + s1 + "\": " + nonVowelCounts);
+
+        String[] ss= {"apple", "banana", "air", "orange", "banana", "an", "kiwi"};
+        List<String> nameList = Arrays.stream(ss).filter(word -> word.startsWith("a")).toList();
+        System.out.println(nameList);
+
+        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        int sum = intList.stream()
+                .mapToInt(Integer::intValue) // Convert to IntStream
+                .sum(); // Sum the even numbers
+        System.out.println("Sum of integers in the list: " + sum);
 
     }
 }
